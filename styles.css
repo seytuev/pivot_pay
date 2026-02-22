@@ -325,20 +325,15 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
     .hero h1 {
-        font-size: 32px;
+        font-size: 28px;
     }
     
     .hero-subtitle {
         font-size: 16px;
     }
     
-    .nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
     .section h2 {
-        font-size: 28px;
+        font-size: 24px;
     }
     
     .principles-grid,
@@ -454,15 +449,177 @@ body {
 
 /* Responsive Updates */
 @media (max-width: 768px) {
+    .header .container {
+        position: relative;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        z-index: 101;
+    }
+
+    .mobile-menu-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--primary-color);
+        transition: all 0.3s;
+        border-radius: 2px;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.3s ease;
+        z-index: 100;
+        gap: 0;
+    }
+
+    .nav.active {
+        right: 0;
+    }
+
+    .nav a {
+        padding: 15px 0;
+        border-bottom: 1px solid var(--bg-light);
+        width: 100%;
+    }
+
     .hero {
-        padding: 80px 0;
+        padding: 60px 0;
     }
     
-    .intro-text {
+    .hero h1 {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
         font-size: 16px;
     }
+
+    .btn-primary {
+        padding: 14px 30px;
+        font-size: 15px;
+    }
     
+    .section {
+        padding: 50px 0;
+    }
+
+    .section h2 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .principles-grid,
+    .advantages-grid,
+    .steps,
+    .solutions-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .principle-card,
+    .advantage-card,
+    .solution-card {
+        padding: 25px;
+    }
+
+    .step {
+        padding: 20px;
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    .contact-info {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .cta-block {
+        padding: 30px 20px;
+    }
+
+    .cta-block h3 {
+        font-size: 22px;
+    }
+
+    .categories {
+        gap: 10px;
+    }
+
+    .category {
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+
+    .intro-text,
     .scheme-description p {
         font-size: 16px;
     }
+
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 24px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .section h2 {
+        font-size: 22px;
+    }
+
+    .principle-card h3,
+    .advantage-card h3,
+    .solution-card h3 {
+        font-size: 18px;
+    }
+
+    .nav {
+        width: 85%;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+}
+
+/* Mobile Menu Toggle - Hidden on Desktop */
+.mobile-menu-toggle {
+    display: none;
 }

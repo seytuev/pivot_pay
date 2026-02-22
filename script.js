@@ -8,8 +8,36 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 behavior: 'smooth',
                 block: 'start'
             });
+            // Close mobile menu if open
+            const nav = document.querySelector('.nav');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                toggle.classList.remove('active');
+            }
         }
     });
+});
+
+// Mobile menu toggle
+const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+const nav = document.querySelector('.nav');
+
+if (mobileMenuToggle) {
+    mobileMenuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        nav.classList.toggle('active');
+    });
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.nav') && !e.target.closest('.mobile-menu-toggle')) {
+        nav.classList.remove('active');
+        if (mobileMenuToggle) {
+            mobileMenuToggle.classList.remove('active');
+        }
+    }
 });
 
 // Button click handler
@@ -39,7 +67,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe all cards and steps
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.principle-card, .step, .advantage-card, .category');
+    const animatedElements = document.querySelectorAll('.principle-card, .step, .advantage-card, .category, .solution-card');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
